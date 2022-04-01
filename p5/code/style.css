@@ -1,0 +1,549 @@
+@font-face {
+  src: url(../../game-assets/fonts/VPPixel-Simplified.otf);
+  font-family: pixel;
+}
+
+:root {
+  --introHex: #416fb7;
+  --intro: rgba(65,111,183, 0.7);
+  --castleHex: #A25210;
+  --castle: rgba(162,82,16, 0.7);
+  --highlandsHex: #3a8530;
+  --highlands: rgba(58,133,48, 0.7);
+  --tavernHex: #89260c;
+  --tavern: rgba(137,38,12, 0.7);
+  --creepyhouseHex: #4f141c;
+  --creepyhouse: rgba(79,20,28, 0.7);
+  --bogHex: #26290A;
+  --bog: rgba(38,41,10, 0.7);
+  --sheepHex: #38200B;
+  --sheep: rgba(56,32,11, 0.7);
+  --riverHex: #3C3F4A;
+  --river: rgba(60,63,74, 0.7);
+  --crossroadsHex: #4E4614;
+  --crossroads: rgba(78,70,20, 0.7);
+  --frogKingHex: #2D2608;
+  --frogKing: rgba(45,38,8,0.7);
+  --fliesHex: #275A52;
+  --flies: rgba(39,90,82, 0.7);
+  --witchAbodeHex: #5C2F62;
+  --witchAbode: rgba(92,47,98, 0.7);
+  --capitol: rgba(129,118,99, 0.7);
+  --library: rgba(91,36,7, 0.7);
+  --cityStreets: rgba(114,86,41, 0.7);
+  --ravine: rgba(42,69,40, 0.7);
+  --survivorCamp: rgba(98,98,98, 0.7);
+  --waspKing: rgba(115,66,9,0.7);
+  --generalSunset: rgba(70,42,50, 0.7);
+}
+
+.box {
+  background-color: var(--intro);
+  font-family: pixel;
+  color: #ebebeb;
+  outline-style: solid;
+  outline-width: 4px;
+  padding: 6px;
+  margin: 0px;
+}
+
+.box.intro {
+  background-color: var(--intro);
+}
+
+.box.castle {
+  background-color: var(--castle);
+}
+
+.box.highlands {
+  background-color: var(--highlands);
+}
+
+.box.tavern {
+  background-color: var(--tavern);
+}
+
+.box.creepyhouse {
+  background-color: var(--creepyhouse);
+}
+
+.box.bog {
+  background-color: var(--bog);
+}
+
+.box.sheep {
+  background-color: var(--sheep);
+}
+
+.box.crossroads {
+  background-color: var(--crossroads);
+}
+
+.box.river {
+  background-color: var(--river);
+}
+
+.box.witchAbode {
+  background-color: var(--witchAbode);
+}
+
+.box.flies {
+  background-color: var(--flies);
+}
+
+.box.throneRoom {
+  background-color: var(--frogKing);
+}
+
+.box.capitolStreets {
+  background-color: var(--cityStreets);
+}
+
+.box.cityGeneral {
+  background-color: var(--capitol);
+}
+
+.box.library {
+  background-color: var(--library);
+}
+
+.box.ravine {
+  background-color: var(--ravine);
+}
+
+.box.survivorCamp {
+  background-color: var(--survivorCamp);
+}
+
+.box.waspKing {
+  background-color: var(--waspKing);
+}
+
+.box.generalSunset {
+  background-color: var(--generalSunset);
+}
+
+
+/******************************
+* GENERAL
+******************************/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #333;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  font-family: pixel;
+  letter-spacing: 2px;
+}
+
+canvas#defaultCanvas0 {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/******************************
+* OVERLAY
+******************************/
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/******************************
+* INTRO SCREEM
+******************************/
+
+/* #intro-screen {
+  display: none;
+} */
+
+@keyframes animateLogo {
+    0% {
+        transform: translateX(-50%) translateY(10px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+#logo {
+    width: 60%;
+    min-width: 500px;
+    position: absolute;
+    top: -1%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* animation: animateLogo 4s infinite ease-in-out; */
+}
+
+.animate {
+    animation: animateLogo 3s infinite ease-in-out;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    bottom: 5%;
+}
+
+.menu button {
+    font-family: pixel;
+    background: none;
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+    letter-spacing: 10px;
+    border: none;
+    margin: 10px 0;
+    outline: none;
+    text-decoration: none;
+}
+
+.menu button:focus{
+    outline: 0;
+}
+
+.menu button:hover{
+    color: red;
+    cursor: pointer;
+}
+
+#game-img, #gameover-img, #endscreen-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    opacity: 1;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+
+#gameover, #endscreen {
+  opacity: 0;
+  pointer-events: none;
+  z-index: -10;
+}
+
+#gameover .menu, #endscreen .menu {
+  z-index: -14;
+  bottom: 20%;
+}
+
+#gameover .menu button, #endscreen .menu button {
+  color: white;
+}
+
+#gameover .menu button:hover, #endscreen .menu button:hover {
+  color: red;
+}
+
+#gameover.active, #endscreen.active {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 10;
+}
+
+#gameover.active .menu, #endscreen.active .menu {
+  z-index: 14;
+}
+
+#endscreen.active .menu {
+  bottom: 15%;
+  background: rgba(0,0,0,0.5);
+}
+
+/******************************
+* TEXTGAME STYLES
+******************************/
+
+#grandparent {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  z-index: -1;
+}
+
+/* DEV-BOX LAYOUT */
+#parent.admin {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas:
+    "text dev"
+    "option dev";
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  min-width: 800px;
+  height: 75%;
+  grid-gap: 50px;
+}
+
+#parent.admin #dev-box {
+  grid-area: dev;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* PRODUCTION LAYOUT */
+#parent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas:
+    "text"
+    "option";
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  min-width: 600px;
+  height: 75%;
+  grid-gap: 50px;
+}
+
+#dev-box {
+  display: none;
+  grid-area: dev;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+
+#textbox {
+  grid-area: text;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 20px;
+}
+
+#optionbox {
+  grid-area: option;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.option {
+  padding: 6px;
+  font-size: 20px;
+  min-height: 42px;
+  height: min-content;
+  color: #ebebeb;
+  background: none;
+}
+
+#background-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+#dev-box input {
+  margin-top: 10px;
+}
+
+#dev-box button {
+  margin: 10px 0;
+}
+
+.player-stats p {
+  margin: 0;
+}
+
+#toggle-sound {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 70px;
+}
+
+#toggle-admin {
+  position: absolute;
+  z-index: 5;
+  top: 20px;
+  left: 100px;
+  background: #010202;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  padding: 0 10px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+/* #tutorial {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  background-color: var(--intro);
+  text-align: center;
+} */
+
+#login {
+  background-image: url('../../game-assets/backgrounds/beach.gif');
+  background-color: #333;
+  height: 100vh;
+  width: 100vw;
+}
+
+#login .box {
+  width: 70%;
+  height: 60%;
+  min-width: 500px;
+  min-height: 500px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#login a {
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 20px;
+  text-decoration: none;
+  margin: 20px auto;
+  display: block;
+  width: 50%;
+}
+
+#login .box p {
+  font-size: 18px;
+}
+
+#login .box p:nth-child(3) {
+  margin-top: 50px;
+}
+
+#video-player {
+  z-index: 15;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  flex-direction: column;
+  color: #fff;
+}
+
+#video-player p {
+  font-size: 22px;
+  margin: 0;
+}
+
+#video-player p#timer-label {
+  font-size: 35px;
+  margin: 10px 0 30px;
+}
+
+#video-player iframe {
+  width: 60vw;
+  height: 50vh;
+  max-width: 800px;
+  max-height: 700px;
+  padding: 20px;
+  border: 2px solid #eee;
+}
+
+/* CHAPTER SELECT */
+.hidden, #video-player.hidden {
+  display: none;
+}
+
+
+/******************************
+* CREDITS
+******************************/
+
+#credits {
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  padding: 10% 0;
+  max-height: 100vh;
+  grid-gap: 100px;
+}
+
+.creators {
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.creators img {
+  width: 220px;
+}
+
+.creator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 12rem;
+  color: #ddd;
+}
+
+.creator.left {
+  align-items: flex-start;
+}
+
+.creator.right {
+  align-items: flex-end;
+}

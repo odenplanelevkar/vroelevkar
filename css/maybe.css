@@ -1,0 +1,228 @@
+/* -------------------------------------------------
+ | CUSTOM PROPERTIES
+------------------------------------------------ */
+
+:root {
+  --main: #28825f;
+}
+
+/* -------------------------------------------------
+ | OVERALL
+------------------------------------------------ */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+section {
+  text-align: center;
+  padding: 5% 7%;
+}
+
+.green {
+  background-color: var(--main);
+  color: #fff;
+}
+
+/* -------------------------------------------------
+ | Nav
+------------------------------------------------ */
+
+.main-nav {
+  background-color: var(--main);
+  padding: 1% 5%;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+
+/*****************************************
+* Header
+*****************************************/
+
+.video-container {
+
+}
+
+#videoBG {
+  height: 60%;
+}
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  font-size: 18vw;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--main);
+  line-height: 60vh;
+  mix-blend-mode: screen;
+  margin: 0;
+  user-select: none;
+}
+
+.banner h3 {
+  text-transform: uppercase;
+  z-index: 2;
+  font-size: 1.3rem;
+  position: relative;
+  top: -5vw;
+}
+
+.banner h3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.banner h3::before, .banner h3::after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 2px;
+    content: '\a0';
+    background-color: #000;
+}
+
+.banner h3::before {
+    margin-left: -55%;
+    text-align: right;
+}
+
+.banner h3::after {
+    margin-left: 5%;
+}
+
+.banner .login {
+  position: absolute;
+  bottom: 0%;
+  padding: 10px 30px;
+  border: 2px solid var(--main);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: var(--main);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.banner .login:hover {
+  color: #fff;
+  transition: 0.1s;
+}
+
+.banner .login span {
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.banner .login::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--main);
+  transition: 0.5s;
+}
+
+.banner .login:hover::before {
+  top: 0;
+  transition: 0.5s;
+}
+
+/*****************************************
+* Info section
+*****************************************/
+#info {
+  margin-top: 10%;
+}
+
+/*****************************************
+* Matsedel
+*****************************************/
+
+.food-box {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--main);
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.food-box .arrow {
+  position: absolute;
+  right: 20px;
+  color: #fff;
+  top: -20px;
+  font-size: 25px;
+  animation: slide 3s infinite;
+
+}
+
+@keyframes slide {
+  0% {
+    right: 40px;
+  }
+  70% {
+    right: 20px;
+  }
+  100% {
+    right: 40px;
+  }
+}
+
+.food-box .day {
+  text-align: left;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.food-box .day h4 {
+  background-color: var(--main);
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+}
+
+.food-box .day p {
+  margin: 20px 10px;
+}

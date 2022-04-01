@@ -1,0 +1,151 @@
+/* -------------------------------------------------
+ | CUSTOM PROPERTIES
+------------------------------------------------ */
+
+:root {
+  --main: #28825F;
+  --main-rgb: 40,130,95;
+  --secondary: #754271;
+  --darker: #0F3023;
+  --lighter: #38AA82;
+  --highlight: #BEF7E4;
+  --background: #E9F0EE;
+  --box: #FEFEFE;
+  --note: #EFF7EF;
+  --deny: #FD626F;
+  --wait: #EA7C37;
+  --first: #F4E389;
+  --second: #D5D5D5;
+  --third: #D0A872;
+}
+
+body {
+  max-height: 100vh;
+}
+
+body.login {
+  /* background: linear-gradient(214deg, var(--darker), var(--highlight));
+  background-size: 400% 400%;
+  animation: grady 15s ease infinite; */
+  background-image: url('../img/vrgkampenOptimized.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@keyframes grady {
+    0%{background-position:0% 69%}
+    50%{background-position:100% 32%}
+    100%{background-position:0% 69%}
+}
+
+.login form{
+  box-shadow:none;
+  padding:20px;
+}
+
+#login {
+  background: var(--main);
+  margin: 50px auto;
+  padding: 40px 20px;
+  max-width: 700px;
+  border-radius: 20px;
+  width: 80%;
+  box-shadow: 30px 0px 10px rgba(0,0,0,0.2);
+}
+
+#login .notice {
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+
+body.front #login {
+  max-width: 740px;
+}
+
+#login h1 a {
+  background-image: url("../img/vitfluga.png");
+  background-size: 75px;
+  background-repeat: no-repeat;
+}
+
+#logga-register img {
+  display: block;
+  margin: 0 auto;
+}
+
+.login label {
+color: #555;
+font-size: 14px;
+}
+
+.login form .forgetmenot{
+  float:none;
+}
+
+#login form {
+  border-radius: 20px;
+  background-color: #fff;
+  margin: 20px;
+}
+
+#login form p.submit{
+margin-top:15px;
+}
+
+#login form p.submit{
+margin-top:15px;
+}
+
+body.front #login #nav a, body.front #login #backtoblog a {
+  font-size: 0.8rem;
+}
+
+body.front #login span {
+  color: #fff;
+}
+
+#login #nav a, #login #backtoblog a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#login #nav a:hover, #login #backtoblog a:hover {
+  color: var(--highlight);
+}
+
+.login.wp-core-ui .button-primary {
+  background-color: var(--lighter);
+  font-weight: 700;
+  padding: 13px 45px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  margin: 10px 0 0 0;
+  transition: 0.5s;
+  border: none;
+  display: block;
+  width: 100%;
+}
+
+body.front .btn {
+  height: 60px;
+}
+body.front input {
+  border: 1px solid #888;
+}
+
+@media only screen and (max-width: 800px) {
+
+  #login form {
+    margin: 20px 0;
+  }
+
+  #login {
+    width: 95%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+  }
+
+}
