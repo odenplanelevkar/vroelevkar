@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <header id="single-page-header">
-  <img src="<?php echo get_bloginfo('template_directory') . '/img/elevkarenOptimized.jpg'; ?>" alt="">
+  <img src="<?php echo get_bloginfo('template_directory') . '/img/odengrodan.png'; ?>" alt="">
   <div class="img-overlay"></div>
 
   <svg class="single-page-logo" id="karen-logo" width="732" height="139" viewBox="0 0 732 139" fill="none" xmlns="http://www.w3.org/2000/svg">
