@@ -75,7 +75,7 @@ $vroelevkar_vice_chairman = get_full_studentname_from_id( $s_vice_chairman->stud
 <section id="notice" class="green">
 
   <div class="news">
-    <h2>Nyheter!</h2>
+    <h2>Nyheter!!!</h2>
     <p>Äntligen är Kommunikationsutskottets textäventyr "Curse of the Circle" här! Nu är även hela Kapitel 3 - The Bog släppt. Så vad väntar du på? Börja spela!</p>
   </div>
 
