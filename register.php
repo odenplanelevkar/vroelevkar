@@ -95,9 +95,9 @@
       <?php
 
       if (!isset($_GET['phonenumber'])){
-        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" required>';
+        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1122334455)" required>';
       } else {
-        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" value="'. $_GET['telefonnummer'] .'" required>';
+        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1122334455)" value="'. $_GET['telefonnummer'] .'" required>';
       }
      ?>
 
