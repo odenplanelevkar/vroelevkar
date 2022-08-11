@@ -101,18 +101,6 @@
       }
      ?>
 
-<?php
- 
- if (!isset($_GET['Class'])){
-   echo '<input type="tel" name="Class" placeholder="Klass" required>';
- } else {
-   echo '<input type="tel" name="Class" placeholder="Class (ex: 1234567890)" value="'. $_GET['Class'] .'" required>';
- }
-?>
-
-
-
-
 
 
       <!-- <input type="number" name="end_year" value="" placeholder="Avgångsår (ex. 2022)..." list="end_years">
