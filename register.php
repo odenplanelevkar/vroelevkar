@@ -86,21 +86,20 @@
        <?php
 
        if (!isset($_GET['email'])){
-         echo '<input type="email" name="email_address" value="" placeholder="Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
+         echo '<input type="email" name="email_address" value="" placeholder="SkolMail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
        } else {
-         echo '<input type="email" name="email_address" value="'. $_GET['email'] .'" placeholder="Skolmail..." required>';
+         echo '<input type="email" name="email_address" value="'. $_GET['email'] .'" placeholder="SkolMail..." required>';
        }
       ?>
 
       <?php
 
       if (!isset($_GET['phonenumber'])){
-        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex:1122334455)" required>';
+        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" required>';
       } else {
-        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex:1122334455)" value="'. $_GET['telefonnummer'] .'" required>';
+        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" value="'. $_GET['telefonnummer'] .'" required>';
       }
      ?>
-
 
 
       <!-- <input type="number" name="end_year" value="" placeholder="Avgångsår (ex. 2022)..." list="end_years">
