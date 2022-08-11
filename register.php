@@ -101,6 +101,17 @@
       }
      ?>
 
+<?php
+ 
+ if (!isset($_GET['Class'])){
+   echo '<input type="tel" name="Class" placeholder="Klass" required>';
+ } else {
+   echo '<input type="tel" name="Class" placeholder="Class (ex: 1234567890)" value="'. $_GET['Class'] .'" required>';
+ }
+?>
+
+
+
 
 
 
