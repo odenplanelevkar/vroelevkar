@@ -97,6 +97,15 @@
       } else {
         echo '<input type="text" name="Klass" value="'. $_GET['text'] .'" placeholder="Klass" required>';
       }
+      ?> 
+      
+      <?php
+
+      if (!isset($_GET['text'])){
+        echo '<input type="text" name="text" value="" placeholder="Födelseår" pattern="(.+?)vrg.se$" required>';
+      } else {
+        echo '<input type="text" name="Klass" value="'. $_GET['text'] .'" placeholder="Födelseår" required>';
+      }
       ?>  
 
       <p class="notice"><i><b>Notera:</b> En medlemsansökan till kåren kommer att skickas automatiskt vid registrering om du inte redan är medlem.</i></p>
