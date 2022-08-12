@@ -60,14 +60,14 @@
 
       ?>
 
-       <?php
+      <?php
 
-       if (!isset($_GET['Name'])){
-         echo '<input type="name" name="username" value="" placeholder="Namn och Efternamn" pattern="(.+?)vrg.se$" required>';
-       } else {
-         echo '<input type="name" name="username" value="'. $_GET['username'] .'" placeholder="Namn och Efternamn" required>';
-       }
-      ?>
+      if (!isset($_GET['text'])){
+        echo '<input type="text" name="text" value="" placeholder="Namn och Efternamn" pattern="(.+?)vrg.se$" required>';
+      } else {
+        echo '<input type="text" name="Name" value="'. $_GET['text'] .'" placeholder="Namn och EFternamn" required>';
+      }
+      ?>  
 
       <?php
 
