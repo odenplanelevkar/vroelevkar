@@ -63,7 +63,7 @@
        <?php
 
        if (!isset($_GET['email'])){
-         echo '<input type="email" name="email_address" value="" placeholder="SkolMail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
+         echo '<input type="email" name="email_address" value="" placeholder="Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
        } else {
          echo '<input type="email" name="email_address" value="'. $_GET['email'] .'" placeholder="Skolmail..." required>';
        }
