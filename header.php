@@ -28,7 +28,7 @@
       <nav>
         <a href="/">Hem</a>
         <a href="/om-karen">Kåren</a>
-        <a href="/front-kalender">Kalender</a>
+        <a href="/front-kalender">Kalender!</a>
         <a href="/panel/dashboard">Panel</a>
       </nav>
 
