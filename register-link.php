@@ -62,6 +62,15 @@
 
        <?php
 
+       if (!isset($_GET['Name'])){
+         echo '<input type="name" name="username" value="" placeholder="Namn och Efternamn" pattern="(.+?)vrg.se$" required>';
+       } else {
+         echo '<input type="name" name="username" value="'. $_GET['username'] .'" placeholder="Namn och Efternamn" required>';
+       }
+      ?>
+
+      <?php
+
        if (!isset($_GET['email'])){
          echo '<input type="email" name="email_address" value="" placeholder="Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
        } else {
