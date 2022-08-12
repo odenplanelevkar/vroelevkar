@@ -108,6 +108,15 @@
       }
       ?>  
 
+      <?php
+
+      if (!isset($_GET['text'])){
+        echo '<input type="text" name="text" value="" placeholder="Kön" pattern="(.+?)vrg.se$" required>';
+      } else {
+        echo '<input type="text" name="Kön" value="'. $_GET['text'] .'" placeholder="Klass" required>';
+      }
+      ?>  
+
       <p class="notice"><i><b>Notera:</b> En medlemsansökan till kåren kommer att skickas automatiskt vid registrering om du inte redan är medlem.</i></p>
       <!-- <label>Jag godkänner <a href="#" target="_blank">medlemsvillkoren</a></label>  <input type="checkbox" required> -->
       <label>Jag godkänner <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0679" target="_blank">GDPR</a></label>  <input type="checkbox" required>
