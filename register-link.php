@@ -60,42 +60,84 @@
 
       ?>
 
-      <input type="text" name="first-name" value="" placeholder="Förnamn..." required>
-      <input type="text" name="last-name" value="" placeholder="Efternamn..." required>
-      <input id="student-email-field" type="email" name="email" value="" placeholder="Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd elevens skolmail!\')" oninput="this.setCustomValidity(\'\')" required>
-      <select class="form-select" name="class-name">
-        <option value="">- Klass -</option>
-        <option value="EK23A">EK23A</option>
-        <option value="EK23B">EK23B</option>
-        <option value="SB23">SB23</option>
-        <option value="NA23A">NA23A</option>
-        <option value="NA23B">NA23B</option>
-        <option value="NA23C">NA23C</option>
-        <option value="NA23D">NA23D</option>
-        <option value="EK24A">EK24A</option>
-        <option value="EK24B">EK24B</option>
-        <option value="SB24">SB24</option>
-        <option value="NA24A">NA24A</option>
-        <option value="NA24B">NA24B</option>
-        <option value="NA24C">NA24C</option>
-        <option value="NA24D">NA24D</option>
-        <option value="EK25A">EK25A</option>
-        <option value="EK25B">EK25B</option>
-        <option value="SB25">SB25</option>
-        <option value="NA25A">NA25A</option>
-        <option value="NA25B">NA25B</option>
-        <option value="NA25C">NA25C</option>
-        <option value="NA25D">NA25D</option>
-      </select>
-      <input id="phonenumber-field" type="text" name="phonenumber" value="" placeholder="Telefonnummer..." required>
-      <input type="text" name="birthyear" value="" placeholder="Födelseår..." required>
+    <?php
+
+    if (!isset($_GET['first-name'])){
+      echo '<input type="text" name="first-name" value="" placeholder="Förnamn" pattern="(.+?)vrg.se$" required>';
+    } else {
+      echo '<input type="text" name="first-name" value="'. $_GET['text'] .'" placeholder="Förnamn" required>';
+    }
+    ?> 
     
-      <select class="form-select" name="gender">
-        <option value="">- Kön -</option>
-        <option value="Kvinna">Kvinna</option>
-        <option value="Man">Man</option>
-        <option value="Annat">Annat</option>
-      </select> 
+    <?php
+
+    if (!isset($_GET['last-name'])){
+      echo '<input type="text" name="last-name" value="" placeholder="Efternamn" pattern="(.+?)vrg.se$" required>';
+    } else {
+      echo '<input type="text" name="last-name" value="'. $_GET['text'] .'" placeholder="Efternamn" required>';
+    }
+    ?>  
+
+    <?php
+
+    if (!isset($_GET['email'])){
+      echo '<input type="email" name="email_address" value="" placeholder="Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
+    } else {
+      echo '<input type="email" name="email_address" value="'. $_GET['email'] .'" placeholder="Skolmail..." required>';
+    }
+    ?>
+
+    <?php
+
+    if (!isset($_GET['phonenumber'])){
+      echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" required>';
+    } else {
+      echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" value="'. $_GET['phonenumber'] .'" required>';
+    }
+    ?>
+
+    <input type="password" name="password" value="" placeholder="Lösenord..." required>
+<?php
+
+    if (!isset($_GET['text'])){
+      echo '<input type="text" name="text" value="" placeholder="Födelseår" pattern="(.+?)vrg.se$" required>';
+    } else {
+      echo '<input type="text" name="Klass" value="'. $_GET['text'] .'" placeholder="Födelseår" required>';
+    }
+    ?>  
+
+    <select class="form-select" name="class-name">
+                <option value="">- Klass -</option>
+                <option value="Kvinna">EK23A</option>
+                <option value="Annat">EK23B</option>
+                <option value="Kvinna">SB23</option>
+                <option value="Man">NA23A</option>
+                <option value="Annat">NA23B</option>
+                <option value="Kvinna">NA23C</option>
+                <option value="Man">NA23D</option>
+                <option value="Annat">EK24A</option>
+                <option value="Kvinna">EK24B</option>
+                <option value="Man">SB24</option>
+                <option value="Annat">NA24A</option>
+                <option value="Kvinna">NA24B</option>
+                <option value="Man">NA24C</option>
+                <option value="Annat">NA24D</option>
+                <option value="Kvinna">EK25A</option>
+                <option value="Man">EK25B</option>
+                <option value="Annat">SB25</option>
+                <option value="Kvinna">NA25A</option>
+                <option value="Man">NA25B</option>
+                <option value="Annat">NA25C</option>
+                <option value="Kvinna">NA25D</option>
+              </select>
+
+    <select class="form-select" name="gender">
+                    <option value="">- Kön -</option>
+                    <option value="Kvinna">Kvinna</option>
+                    <option value="Man">Man</option>
+                    <option value="Annat">Annat</option>
+                  </select>
+
 
       <p class="notice"><i><b>Notera:</b> En medlemsansökan till kåren kommer att skickas automatiskt vid registrering om du inte redan är medlem.</i></p>
       <!-- <label>Jag godkänner <a href="#" target="_blank">medlemsvillkoren</a></label>  <input type="checkbox" required> -->
