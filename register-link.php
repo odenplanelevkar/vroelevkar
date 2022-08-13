@@ -109,27 +109,27 @@
 
     <select class="form-select" name="class-name">
                 <option value="">- Klass -</option>
-                <option value="Kvinna">EK23A</option>
-                <option value="Annat">EK23B</option>
-                <option value="Kvinna">SB23</option>
-                <option value="Man">NA23A</option>
-                <option value="Annat">NA23B</option>
-                <option value="Kvinna">NA23C</option>
-                <option value="Man">NA23D</option>
-                <option value="Annat">EK24A</option>
-                <option value="Kvinna">EK24B</option>
-                <option value="Man">SB24</option>
-                <option value="Annat">NA24A</option>
-                <option value="Kvinna">NA24B</option>
-                <option value="Man">NA24C</option>
-                <option value="Annat">NA24D</option>
-                <option value="Kvinna">EK25A</option>
-                <option value="Man">EK25B</option>
-                <option value="Annat">SB25</option>
-                <option value="Kvinna">NA25A</option>
-                <option value="Man">NA25B</option>
-                <option value="Annat">NA25C</option>
-                <option value="Kvinna">NA25D</option>
+                <option value="EK23A">EK23A</option>
+                <option value="EK23B">EK23B</option>
+                <option value="SB23">SB23</option>
+                <option value="NA23A">NA23A</option>
+                <option value="NA23B">NA23B</option>
+                <option value="NA23C">NA23C</option>
+                <option value="NA23D">NA23D</option>
+                <option value="EK24A">EK24A</option>
+                <option value="EK24B">EK24B</option>
+                <option value="SB24">SB24</option>
+                <option value="NA24A">NA24A</option>
+                <option value="NA24B">NA24B</option>
+                <option value="NA24C">NA24C</option>
+                <option value="NA24D">NA24D</option>
+                <option value="EK25A">EK25A</option>
+                <option value="EK25B">EK25B</option>
+                <option value="SB25">SB25</option>
+                <option value="NA25A">NA25A</option>
+                <option value="NA25B">NA25B</option>
+                <option value="NA25C">NA25C</option>
+                <option value="NA25D">NA25D</option>
               </select>
 
     <select class="form-select" name="gender">
