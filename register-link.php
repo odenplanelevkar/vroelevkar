@@ -60,23 +60,24 @@
 
       ?>
 
-    <?php
-
-    if (!isset($_GET['first-name'])){
-      echo '<input type="text" name="first-name" value="" placeholder="Förnamn" pattern="(.+?)vrg.se$" required>';
-    } else {
-      echo '<input type="text" name="first-name" value="'. $_GET['text'] .'" placeholder="Förnamn" required>';
-    }
-    ?> 
     
     <?php
 
-    if (!isset($_GET['last-name'])){
-      echo '<input type="text" name="last-name" value="" placeholder="Efternamn" pattern="(.+?)vrg.se$" required>';
+    if (!isset($_GET['first-name'])){
+      echo '<input type="text" name="first-name" placeholder="Förnamn" required>';
     } else {
-      echo '<input type="text" name="last-name" value="'. $_GET['text'] .'" placeholder="Efternamn" required>';
+      echo '<input type="text" name="first-name" placeholder="Förnamn"'. $_GET['first-name'] .'" required>';
     }
-    ?>  
+    ?>
+
+    <?php
+
+    if (!isset($_GET['last-name'])){
+      echo '<input type="text" name="last-name" placeholder="Efternamn" required>';
+    } else {
+      echo '<input type="text" name="last-name" placeholder="Efternamn" value="'. $_GET['last-name'] .'" required>';
+    }
+    ?>
 
     <?php
 
@@ -100,12 +101,12 @@
 
 <?php
 
-    if (!isset($_GET['text'])){
-      echo '<input type="text" name="text" value="" placeholder="Födelseår" pattern="(.+?)vrg.se$" required>';
+    if (!isset($_GET['birtyear'])){
+      echo '<input type="text" name="birthyear" placeholder="Födelseår" required>';
     } else {
-      echo '<input type="text" name="Klass" value="'. $_GET['text'] .'" placeholder="Födelseår" required>';
+      echo '<input type="text" name="birthyear" placeholder="Födelseår" value="'. $_GET['birthyear'] .'" required>';
     }
-    ?>  
+    ?>
 
     <select class="form-select" name="class-name">
                 <option value="">- Klass -</option>
