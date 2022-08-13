@@ -47,9 +47,7 @@
         if ($user_check == 'empty'){
           echo '<p class="error">Du måste fylla i alla värden!</p>';
         }
-        elseif ($user_check == 'nostudentshell'){
-          echo '<p class="error">Mailaddressen finns inte systemet, vänligen dubbelkolla att du skrivit rätt. Annars kontakta jones.hussain@vroelevkar.se så lägger vi till din mailaddress i systemet!</p>';
-        }
+        
         elseif ($user_check == 'invalidemail'){
           echo '<p class="error">Använd din skolmail!</p>';
         }
