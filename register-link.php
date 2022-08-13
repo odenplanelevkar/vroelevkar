@@ -86,6 +86,8 @@
       echo '<input type="email" name="email_address" value="'. $_GET['email'] .'" placeholder="Skolmail..." required>';
     }
     ?>
+    
+    <input type="password" name="password" value="" placeholder="Lösenord..." required>
 
     <?php
 
@@ -96,7 +98,6 @@
     }
     ?>
 
-    <input type="password" name="password" value="" placeholder="Lösenord..." required>
 <?php
 
     if (!isset($_GET['text'])){
