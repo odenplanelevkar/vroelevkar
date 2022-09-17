@@ -64,42 +64,26 @@
 
       ?>
 
-      <?php
-       if (!isset($_GET['first_name'])){
-         echo '<input type="text" name="first_name" value="" placeholder="Förnamn..." required>';
-       } else {
-         echo '<input type="text" name="first_name" value="'. $_GET['first_name'] .'" placeholder="Förnamn..." required>';
-       }
+    ?>
 
+    <input type="text" name="first-name" value="" placeholder="*Förnamn..." required>
+    <input type="text" name="last-name" value="" placeholder="*Efternamn..." required>
+    <input id="student-email-field" type="email" name="email" value="" placeholder="*Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd elevens skolmail!\')" oninput="this.setCustomValidity(\'\')" required>
+    <div class="autocomplete">
+      <input id="class-name-field" type="text" name="class-name" value="" placeholder="*Klass..." required oninput="fillProgramName('class-name-field', 'program-name-field')">
+    </div>
+    <input id="program-name-field" type="text" name="program" value="" placeholder="*Utbildningsprogram..." required>
+    <input id="phonenumber-field" type="text" name="phonenumber" value="" placeholder="Telefonnummer...">
+    <input type="text" name="birthyear" value="" placeholder="Födelseår...">
+    <input type="text" name="registered-city" value="Stockholm" placeholder="Folkbokförd stad...">
 
-       if (!isset($_GET['last_name'])){
-         echo '<input type="text" name="last_name" value="" placeholder="Efternamn..." required>';
-       } else {
-         echo '<input type="text" name="last_name" value="'. $_GET['last_name'] .'" placeholder="Efternamn..." required>';
-       }
+    <select class="form-select" name="gender">
+      <option value="">- Kön -</option>
+      <option value="Kvinna">Kvinna</option>
+      <option value="Man">Man</option>
+      <option value="Annat">Annat</option>
+    </select>
 
-       ?>
-       <div class="autocomplete">
-         <input id="class" type="text" name="class_name" value="" placeholder="Klass...">
-       </div>
-
-       <?php
-
-       if (!isset($_GET['email'])){
-         echo '<input type="email" name="email_address" value="" placeholder="Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
-       } else {
-         echo '<input type="email" name="email_address" value="'. $_GET['email'] .'" placeholder="Skolmail..." required>';
-       }
-      ?>
-
-      <?php
-
-      if (!isset($_GET['phonenumber'])){
-        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" required>';
-      } else {
-        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" value="'. $_GET['telefonnummer'] .'" required>';
-      }
-     ?>
 
 
       <!-- <input type="number" name="end_year" value="" placeholder="Avgångsår (ex. 2022)..." list="end_years">
