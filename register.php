@@ -64,25 +64,25 @@
 
       ?>
 
-?>
+  ?>
 
-<input type="text" name="first-name" value="" placeholder="*Förnamn..." required>
-<input type="text" name="last-name" value="" placeholder="*Efternamn..." required>
-<input id="student-email-field" type="email" name="email" value="" placeholder="*Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd elevens skolmail!\')" oninput="this.setCustomValidity(\'\')" required>
-<div class="autocomplete">
-  <input id="class-name-field" type="text" name="class-name" value="" placeholder="*Klass..." required oninput="fillProgramName('class-name-field', 'program-name-field')">
-</div>
-<input id="program-name-field" type="text" name="program" value="" placeholder="*Utbildningsprogram..." required>
-<input id="phonenumber-field" type="text" name="phonenumber" value="" placeholder="Telefonnummer...">
-<input type="text" name="birthyear" value="" placeholder="Födelseår...">
-<input type="text" name="registered-city" value="Stockholm" placeholder="Folkbokförd stad...">
+  <input type="text" name="first-name" value="" placeholder="*Förnamn..." required>
+  <input type="text" name="last-name" value="" placeholder="*Efternamn..." required>
+  <input id="student-email-field" type="email" name="email" value="" placeholder="*Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd elevens skolmail!\')" oninput="this.setCustomValidity(\'\')" required>
+  <div class="autocomplete">
+    <input id="class-name-field" type="text" name="class-name" value="" placeholder="*Klass..." required oninput="fillProgramName('class-name-field', 'program-name-field')">
+  </div>
+  <input id="program-name-field" type="text" name="program" value="" placeholder="*Utbildningsprogram..." required>
+  <input id="phonenumber-field" type="text" name="phonenumber" value="" placeholder="Telefonnummer...">
+  <input type="text" name="birthyear" value="" placeholder="Födelseår...">
+  <input type="text" name="registered-city" value="Stockholm" placeholder="Folkbokförd stad...">
 
-<select class="form-select" name="gender">
-  <option value="">- Kön -</option>
-  <option value="Kvinna">Kvinna</option>
-  <option value="Man">Man</option>
-  <option value="Annat">Annat</option>
-</select>
+  <select class="form-select" name="gender">
+    <option value="">- Kön -</option>
+    <option value="Kvinna">Kvinna</option>
+    <option value="Man">Man</option>
+    <option value="Annat">Annat</option>
+  </select>
 
       <p class="notice"><i><b>Notera:</b> En medlemsansökan till kåren kommer att skickas automatiskt vid registrering om du inte redan är medlem.</i></p>
       <label>Jag godkänner <a href="#" target="_blank">medlemsvillkoren</a></label>  <input type="checkbox" required>
