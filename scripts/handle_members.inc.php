@@ -788,6 +788,7 @@ elseif (isset($_POST['remove-student'])) {
   send_header( $return . 'success' );
 
 }
+
 elseif(isset($_Post['register_new_user_student_complete'])) {
   // kod från add_studentshell
 
@@ -861,7 +862,7 @@ if ($studentshell->date_member == NULL) {
   // Set status to waiting
   update_record( 'vro_users', 'status', 'w', 'id', $studentshell->id, $return . '=studentShellFailedSetStatus' );
 
-} else {
+} else }
 
   // Only do this to waiting and no members
   if ($studentshell->status != 'y') {
@@ -924,6 +925,9 @@ $user_id = wp_create_user($email_address, $password, $email_address);
 
 
   // Kod från register new user
+
+
+
 
 else {
   header("Location: /panel/medlemmar");
