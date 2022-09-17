@@ -861,7 +861,7 @@ if ($studentshell->date_member == NULL) {
   // Set status to waiting
   update_record( 'vro_users', 'status', 'w', 'id', $studentshell->id, $return . '=studentShellFailedSetStatus' );
 
-} else{
+} else {
 
   // Only do this to waiting and no members
   if ($studentshell->status != 'y') {
