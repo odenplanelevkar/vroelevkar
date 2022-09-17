@@ -58,28 +58,25 @@
         }
       }
 
+      
       ?>
+        <?php
 
-    
-    ?>
-
-    <input type="text" name="first-name" value="" placeholder="*Förnamn..." required>
-    <input type="text" name="last-name" value="" placeholder="*Efternamn..." required>
-    <input id="student-email-field" type="email" name="email" value="" placeholder="*Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd elevens skolmail!\')" oninput="this.setCustomValidity(\'\')" required>
-    <div class="autocomplete">
-      <input id="class-name-field" type="text" name="class-name" value="" placeholder="*Klass..." required oninput="fillProgramName('class-name-field', 'program-name-field')">
-    </div>
-    <input id="program-name-field" type="text" name="program" value="" placeholder="*Utbildningsprogram..." required>
-    <input id="phonenumber-field" type="text" name="phonenumber" value="" placeholder="Telefonnummer...">
-    <input type="text" name="birthyear" value="" placeholder="Födelseår...">
-    <input type="text" name="registered-city" value="Stockholm" placeholder="Folkbokförd stad...">
-
-    <select class="form-select" name="gender">
-      <option value="">- Kön -</option>
-      <option value="Kvinna">Kvinna</option>
-      <option value="Man">Man</option>
-      <option value="Annat">Annat</option>
-    </select>
+        if (!isset($_GET['email'])){
+          echo '<input type="email" name="email_address" value="" placeholder="Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
+          echo '<input type="email" name="email_address" value="" placeholder="SkolMail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd din skolmail!\')" oninput="this.setCustomValidity(\'\')" required>';
+        } else {
+          echo '<input type="email" name="email_address" value="'. $_GET['email'] .'" placeholder="Skolmail..." required>';
+        }
+      ?>
+      <?php
+      if (!isset($_GET['phonenumber'])){
+        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" required>';
+      } else {
+        echo '<input type="tel" name="phonenumber" placeholder="Telefonnummer... (ex: 1234567890)" value="'. $_GET['phonenumber'] .'" required>';
+      }
+     ?>
+      <input type="password" name="password" value="" placeholder="Lösenord..." required>
 
       <p class="notice"><i><b>Notera:</b> En medlemsansökan till kåren kommer att skickas automatiskt vid registrering om du inte redan är medlem.</i></p>
       <!-- <label>Jag godkänner <a href="#" target="_blank">medlemsvillkoren</a></label>  <input type="checkbox" required> -->
