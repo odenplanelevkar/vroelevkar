@@ -69,13 +69,34 @@
   <input type="text" name="first-name" value="" placeholder="*Förnamn..." required>
   <input type="text" name="last-name" value="" placeholder="*Efternamn..." required>
   <input id="student-email-field" type="email" name="email" value="" placeholder="*Skolmail..." pattern="(.+?)vrg.se$" oninvalid="this.setCustomValidity(\'Använd elevens skolmail!\')" oninput="this.setCustomValidity(\'\')" required>
-  <div class="autocomplete">
-    <input id="class-name-field" type="text" name="class-name" value="" placeholder="*Klass..." required oninput="fillProgramName('class-name-field', 'program-name-field')">
-  </div>
-  <input id="program-name-field" type="text" name="program" value="" placeholder="*Utbildningsprogram..." required>
   <input id="phonenumber-field" type="text" name="phonenumber" value="" placeholder="Telefonnummer...">
   <input type="text" name="birthyear" value="" placeholder="Födelseår...">
   <input type="text" name="registered-city" value="Stockholm" placeholder="Folkbokförd stad...">
+
+  <select class="form-select" name="class-name">
+                <option value="">- Klass -</option>
+                <option value="EK23A">EK23A</option>
+                <option value="EK23B">EK23B</option>
+                <option value="SB23">SB23</option>
+                <option value="NA23A">NA23A</option>
+                <option value="NA23B">NA23B</option>
+                <option value="NA23C">NA23C</option>
+                <option value="NA23D">NA23D</option>
+                <option value="EK24A">EK24A</option>
+                <option value="EK24B">EK24B</option>
+                <option value="SB24">SB24</option>
+                <option value="NA24A">NA24A</option>
+                <option value="NA24B">NA24B</option>
+                <option value="NA24C">NA24C</option>
+                <option value="NA24D">NA24D</option>
+                <option value="EK25A">EK25A</option>
+                <option value="EK25B">EK25B</option>
+                <option value="SB25">SB25</option>
+                <option value="NA25A">NA25A</option>
+                <option value="NA25B">NA25B</option>
+                <option value="NA25C">NA25C</option>
+                <option value="NA25D">NA25D</option>
+              </select>
 
   <select class="form-select" name="gender">
     <option value="">- Kön -</option>
