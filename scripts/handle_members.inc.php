@@ -926,9 +926,6 @@ $user_id = wp_create_user($email_address, $password, $email_address);
 
   // Kod från register new user
 
-
-
-
 else {
   header("Location: /panel/medlemmar");
   exit();
