@@ -788,6 +788,142 @@ elseif (isset($_POST['remove-student'])) {
   send_header( $return . 'success' );
 
 }
+elseif(isset($_Post['register_new_user_student_complete'])) {
+  // kod från add_studentshell
+
+  global $wpdb;
+
+  $return = '/register?new_student';
+
+  // Required meta
+  $first = check_post( $_POST['first-name'], $return . '=empty');
+  $last = check_post( $_POST['last-name'], $return . '=empty');
+  $email = check_post( $_POST['email'], $return . '=empty');
+  $class_name = check_post( $_POST['class-name'], $return . '=empty');
+  $program = check_post( $_POST['program'], $return . '=empty');
+
+  // Optional meta, if not supplied --> set to null
+  $phonenumber = emptyToNull( test_input( $_POST['phonenumber'] ) );
+  $birthyear = emptyToNull( test_input( $_POST['birthyear'] ) );
+  $gender = emptyToNull( test_input( $_POST['gender'] ) );
+  $registered_city = emptyToNull( test_input( $_POST['registered-city'] ) );
+
+  // Get class_id from name
+  $class_id = get_classid_from( $class_name );
+  // Check if a class id was found
+  if ($class_id == NULL) {
+    send_header( $return . '=noclassid' );
+  }
+
+  // Get endyear
+  $end_year = get_endyear_from( $class_name );
+  if ($end_year == NULL) {
+    send_header( $return . '=noendyear' );
+  }
+
+  // Start creating
+  $new_studentshell = array();
+  $new_studentshell['first_name'] = $first;
+  $new_studentshell['last_name'] = $last;
+  $new_studentshell['birthyear'] = $birthyear;
+  $new_studentshell['gender'] = $gender;
+  $new_studentshell['registered_city'] = $registered_city;
+  $new_studentshell['phonenumber'] = $phonenumber;
+  $new_studentshell['email'] = $email;
+  $new_studentshell['program'] = $program;
+  $password = $_POST['password'];
+  $new_studentshell['end_year'] = $end_year;
+  $new_studentshell['class_id'] = $class_id;
+
+  // Insert the new studentshell into the database
+  insert_record('vro_users', $new_studentshell, 'DB insertion failed in add_studentshell');
+
+  // Logg action
+  $log_description = 'Lade till elevskalet för ' . $first . ' ' . $last;
+  add_log( 'Elev', $log_description, get_current_user_id() );
+
+  // kod från register new_user
+  // Check if a studenshell has been created
+  $studentshell = $wpdb->get_row( "SELECT * FROM vro_users WHERE email = '$email_address'" );
+// No studentshell was found, send back error
+if ($studentshell == NULL) {
+  send_header( $return . "=nostudentshell&phonenumber=$phonenumber" );
+}
+
+// Check if date entered has been set
+if ($studentshell->date_member == NULL) {
+  // If not, set date entered and welcome to kåren
+
+  // Update studentshell with current timestamp
+  $date = date("Y-m-d H:i:s");
+  update_record( 'vro_users', 'date_member', $date, 'id', $studentshell->id, $return . '=studentshelldateerror'  );
+
+  // Set status to waiting
+  update_record( 'vro_users', 'status', 'w', 'id', $studentshell->id, $return . '=studentShellFailedSetStatus' );
+
+} else{
+
+  // Only do this to waiting and no members
+  if ($studentshell->status != 'y') {
+
+    // NOTE:
+    // Set status to waiting OR YES HERE
+
+    // If reregister or studentshell already set to member - set to yes. If registering first time - set to waiting
+    $new_register_status = ($studentshell->wpuser_id != NULL || $studentshell->status == 'y') ? 'y' : 'w';
+
+    // Check if already correct status
+    if ($studentshell->status != $new_register_status) {
+      update_record( 'vro_users', 'status', $new_register_status, 'id', $studentshell->id, $return . '=studentShellFailedSetStatus' );
+    }
+
+  }
+
+
+$user_id = wp_create_user($email_address, $password, $email_address);
+
+    wp_update_user(
+      array(
+        'ID'       => $user_id,
+        'nickname' => $first_name . ' ' . $last_name
+      )
+    );
+
+    // Default to waiting member in the elevkår
+    add_user_meta( $user_id, 'status', 'w' );
+
+    // Set the class for the user
+    add_user_meta( $user_id, 'class_id', $class->id );
+
+    // Set the end year
+    add_user_meta( $user_id, 'end_year', $end_year );
+
+    // Set the phonenumber
+    add_user_meta( $user_id, 'phonenumber', $phonenumber );
+
+    // Set user role
+    $user = new WP_User( $user_id );
+    $user->set_role( 'subscriber' );
+
+    // Mail the user
+    // wp_mail( $email_address, 'Välkommen till Viktor Rydberg Odenplans hemsida!', 'Ditt lösenord är: ' . $password . '. Logga in för att ändra lösenordet.' );
+    wp_mail( $email_address, 'Välkommen till Viktor Rydberg Odenplans hemsida!', 'Hej '. $first_name .'! Välkommen till Viktor Rydbergs Odenplans hemsida! Gå in på vroelevkar.se för att se matsedeln, ansöka till kommittéer och mycket mer!' );
+
+    // Login user
+    wp_set_current_user( $user_id, $user->user_login );
+    wp_set_auth_cookie( $user_id );
+    do_action( 'wp_login', $user->user_login );
+
+    // Logg action
+    $log_description = 'Registrerade eleven ' . $first_name . ' ' . $last_name;
+    add_log( 'Medlemmar', $log_description, get_current_user_id() );
+
+    //Success!
+    header("Location: /panel/dashboard?register=success");
+    exit();
+
+
+  // Kod från register new user
 
 else {
   header("Location: /panel/medlemmar");
