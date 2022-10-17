@@ -832,7 +832,7 @@ elseif(isset($_Post['register_new_user_student_complete'])) {
   $new_studentshell['phonenumber'] = $phonenumber;
   $new_studentshell['email'] = $email;
   $new_studentshell['program'] = $program;
-  $password = $_POST['password'];
+  $password = $_POST['password']; $password;
   $new_studentshell['end_year'] = $end_year;
   $new_studentshell['class_id'] = $class_id;
 
